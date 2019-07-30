@@ -1,0 +1,12 @@
+@media (max-width: 576px) {
+    .big-space, .small-space {
+        margin: 35px auto !important;
+    }
+}
+.small-space {
+    margin: 20px auto 25px auto;
+}
+.big-space {
+    margin: 80px auto;
+}
+

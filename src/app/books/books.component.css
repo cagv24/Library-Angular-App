@@ -1,0 +1,23 @@
+.card-title {
+    color: #029f5b;
+    font-size: 18px;
+    text-align: center !important;
+}
+.card-type {
+    color: black;
+}
+.card-text {
+    font-size: 16px;
+    color: rgb(49, 65, 71);
+}
+.card {
+    box-shadow: 1px 4px 8px 0px rgba(160, 153, 160, 0.56);
+    -webkit-box-shadow: 1px 4px 8px 0px rgba(160, 153, 160, 0.56);
+    -moz-box-shadow: 1px 4px 8px 0px rgba(160, 153, 160, 0.56);
+}
+
+@media (max-width: 576px) {
+    .card-container {
+        margin: 10px auto !important;
+    }
+}

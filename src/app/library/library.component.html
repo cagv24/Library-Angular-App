@@ -1,0 +1,38 @@
+<div class="content">
+    <app-navbar></app-navbar>
+    <div class="container content-inside">
+      <form [ngClass]="{'big-space': !hasSearch || (hasSearch && searchError), 'small-space': hasSearch}" #searchForm="ngForm">
+          <div class="row" style="margin: 20px auto 30px auto;">
+              <div class="col-12">
+                  <h3 class="text-center title">Buscar libros</h3>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-3 offset-lg-1 form-group">
+              <select class="form-control" [(ngModel)]="searchType" name="searchType">
+                <option value="1">Nombre</option>
+                <option value="2">Genero</option>
+              </select>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="form-group">
+                <input type="text" [(ngModel)]="search" name="search" class="form-control" placeholder="Buscar" required>
+              </div>
+            </div>
+            <div class="col-12 col-sm-3 col-lg-2">
+              <button type="button" (click)="searchMethod()" [disabled]="!searchForm.form.valid" name="search-submit" class="form-control btn btn-success">Buscar</button>
+            </div>
+          </div>
+          <div class="row" *ngIf="searchError" style="margin-top: 15px;">
+            <div class="col-12">
+                <div class="alert alert-warning" role="alert">
+                  <strong>Oops!</strong> No se encontraron libros que cumplan con tu búsqueda.
+                </div> 
+            </div>
+          </div>
+      </form>
+      <app-books [books]="books" [userType]="0"></app-books>
+    </div>
+</div>
+<app-footer></app-footer>
+

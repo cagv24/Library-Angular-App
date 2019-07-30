@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <ng-template ngFor let-book [ngForOf]="books" let-i="index" let-first="first">
+      <div class="col-9 col-sm-6 col-md-4 col-lg-3 card-container" style="margin: 10px 0px;">
+        <div class="card">
+          <img class="card-img-top img-responsive" src="./../../assets/images/book-default.jpg" alt="Book image">
+          <div class="card-block">
+            <h5 class="card-title">{{ book.name }}</h5>
+            <p class="card-text"><span class="card-type">Genero:</span> {{ book.genre }}</p>
+            <p class="card-text"><span class="card-type">Formato:</span> {{ book.format }}</p>
+            <p class="card-text"><span class="card-type">Autor:</span> {{ book.autor }}</p>
+            <div *ngIf="userType == 1">
+              <p *ngIf="book.state == 1" class="card-text"><span class="card-type">Estado:</span> Subido</p>
+              <p *ngIf="book.state == 2" class="card-text"><span class="card-type">Estado:</span> En revisión</p>
+              <p *ngIf="book.state == 3" class="card-text"><span class="card-type">Estado:</span> Publicado</p>
+              <p *ngIf="book.state == 4" class="card-text"><span class="card-type">Estado:</span> Descartado</p>
+            </div>
+            <div class="row" style="text-align: center;" *ngIf="userType == 3">
+              <div class="col-12" style="margin: 10px 0px">
+                <button type="button" class="btn btn-success" (click)="editorAction(book, 2)">
+                    <i class="fa fa-check"></i> Aceptar
+                </button>
+              </div>
+              <div class="col-12" style="margin: 10px 0px" (click)="editorAction(book, 4)">
+                <button type="button" class="btn btn-danger" >
+                    <i class="fa fa-times"></i> Rechazar
+                </button>
+              </div>
+            </div>
+            <div class="row" style="text-align: center; margin: 10px 0px" *ngIf="userType == 2">
+              <div class="input-group col-12" style="margin: 10px 0px">
+                  <span class="input-group-addon" id="basic-addon1">#</span>
+                  <input type="text" class="form-control" placeholder="Puntaje" [(ngModel)]="book.score" aria-describedby="basic-addon1" maxlength="2">
+              </div>
+              <div class="col-12" style="margin: 10px 0px" (click)="reviserAction(book)">
+                  <button type="button" class="btn btn-success" >Calificar</button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </ng-template>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="content">
+    <app-navbar></app-navbar>     
+    <div class="container content-inside">
+        <div class="row" style="margin: 20px auto;">
+            <div class="col-7 offset-2">
+                <h3 class="text-center title">Libros publicados</h3>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-success" (click)="open(content)"><b>+</b></button>
+            </div>
+        </div>
+        <app-books [books]="writtenBooks" [userType]="1"></app-books>
+        <div class="row" *ngIf="writtenBooks.length === 0" style="margin: 50px auto;">
+            <div class="col-12">
+                <div class="alert alert-warning" role="alert">
+                    <strong>Oops!</strong> No has publicado ningún libro aún.
+                </div> 
+            </div>
+        </div>
+    </div>
+    <ng-template #content let-c="close" let-d="dismiss">        
+        <div class="modal-header">
+            <h4 class="modal-title title">Agregar libro</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <form #addBookForm="ngForm">
+            <div class="modal-body">                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" placeholder="Introduzca el Nombre" [(ngModel)]="addedBook.name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Genero</label>
+                            <input type="text" class="form-control" placeholder="Introduzca el Género" [(ngModel)]="addedBook.genre" name="genre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Formato</label>
+                            <input type="text" class="form-control" placeholder="Introduzca el Formato" [(ngModel)]="addedBook.format" name="format">
+                        </div>
+                    </div>
+                </div>               
+            </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" (click)="postBook()" [disabled]="!addBookForm.form.valid">Agregar</button>
+        </div>
+    </form>
+    </ng-template>
+</div>
+<ng2-toasty></ng2-toasty>
+<app-footer></app-footer>

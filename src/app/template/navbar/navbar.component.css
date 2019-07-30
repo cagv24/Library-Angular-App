@@ -1,0 +1,25 @@
+.navbar-dropdown {
+    display: block;
+    position: fixed;
+    background-color: #f7f7f7;
+    width: 120px;
+    padding: 8px;
+    text-align: center;
+    right: 10px;
+}
+.navbar-dropdown-menu {
+    border: none;
+    background-color: #f7f7f7;
+    padding: 0 8px !important;
+}
+.dropdown {
+    cursor: pointer;
+}
+@media (max-width: 767px) {
+    .navbar-dropdown {
+        left: 0px;
+        width: 100%;
+        text-align: left;
+        padding: 0px 0px 8px 15px;
+    }
+}

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="/libros">Librería</a>
+  <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="exCollapsingNavbar2">
+    <ul class="mr-auto navbar-nav" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/', userType]" routerLinkActive="active">Mis libros</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <div ngbDropdown *ngIf="isLoggedIn" class="dropdown">
+        <li class="nav-item">
+          <a class="nav-link" ngbDropdownToggle> {{ getName() | uppercase }}</a>
+        </li>
+        <div ngbDropdownMenu class="navbar-dropdown-menu">
+          <ul class="navbar-nav navbar-dropdown">
+            <li class="nav-item">
+              <a class="nav-link" (click)="logout()">Salir</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <li class="nav-item" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLink="/">Iniciar sesión</a>
+      </li>
+    </ul>
+  </div>
+</nav>

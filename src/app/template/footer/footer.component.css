@@ -1,0 +1,18 @@
+.bg-lightgray
+{
+    background-color:LightGray;
+}
+@media (min-width: 767px) {
+    .copyrights {
+        padding-top:15px;
+    }
+    .footer-wraper {
+        height: 120px;
+        margin-top: -120px;
+    }
+}
+
+.footer-wraper {
+    height: 170px;
+    margin-top: -170px;
+}

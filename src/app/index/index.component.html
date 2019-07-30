@@ -1,0 +1,25 @@
+<div class="login-container">
+  <div class="container" style="width: 100%; position: absolute; top: 25%;">
+    <div class="row align-items-center">
+        <div class="col-md-6 offset-md-3">
+          <div class="panel panel-login" style="background-color: white;">
+            <div class="panel-heading" style="height: 60px">
+              <div class="row" style="height: 100%">
+                <div class="col-sm-6" style="margin: auto" (click)="onMenuOption(true)">
+                  <a [ngClass]="{active: loginDisplay}">Iniciar Sesión</a>
+                </div>
+                <div class="col-sm-6" style="margin: auto" (click)="onMenuOption(false)">
+                  <a [ngClass]="{active: signinDisplay}">Registrarse</a>
+                </div>
+              </div>
+              <hr>
+            </div>
+            <div class="panel-body">
+              <app-login *ngIf="loginDisplay"></app-login>
+              <app-signin *ngIf="signinDisplay"></app-signin>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
